@@ -1,8 +1,8 @@
 ## mlpro_solutions
 
 ### NLP -  Jaccard Similarity Index
-The Jaccard similarity index measures the similarity between two sets of data. It can range from 0 to 1. The higher the number, the more similar the two sets of data.
-The Jaccard similarity index is calculated as:
+The Jaccard similarity index measures the similarity between two sets of data. It can range from 0 to 1. The higher the number, the more similar the two sets of data.   
+The Jaccard similarity index is calculated as:   
 Jaccard Similarity = (number of observations in both sets:**Intersection**) / (number in either set:**Union**)
 ```
 def jaccard_similarity(list1,list2):
