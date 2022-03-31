@@ -1,4 +1,7 @@
-## mlpro_solutions
+## mlpro solutions
+
+This page contains solutions to some problems presented in [mlpro](https://mlpro.io/problems/) platform
+
 
 ### NLP -  Jaccard Similarity Index
 #### Difficulty: 2
