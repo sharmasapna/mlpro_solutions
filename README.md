@@ -15,3 +15,24 @@ def jaccard_similarity(list1,list2):
     js = number_of_elements_in_either_sets / number_of_elements_in_both_sets 
     return js
 ```
+
+### Computer Vision : Simple Blur
+#### Difficulty: 1
+
+In this problem, you are given a NumPy array (2D) representing a grayscale image. Your job is to read this image and blur it using the image processing library Pillow. The output should also be a NumPy array representing the blurred image.   
+```
+from PIL import Image, ImageFilter
+import numpy as np
+
+# Please do not change the below function name and parameters
+#def blur_PIL(img_array):
+def blur_PIL(img_array: np.ndarray):
+    
+    # converting the list to numpy array
+    shape = img_array.shape
+    im = np.asarray(img_array).reshape(-1,1)
+    out = np.concatenate([im, np.ones(np.prod(shape)).reshape(-1,1) * 255], axis=1).reshape(shape+(2,))
+    return out.astype(np.uint8)   
+
+
+```
