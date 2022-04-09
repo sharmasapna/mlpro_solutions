@@ -36,3 +36,36 @@ def blur_PIL(img_array: np.ndarray):
 
 
 ```
+### Fundamentals : Outlier Detection with IQR
+#### Difficulty: 2
+IQR, or Inter-Quartile Range, is the difference between third quartile and first quartile of your data (75th percentile and 25th percentile respectively).
+Lower and upper bounds are calculated as Q1 - 1.5 IQR and Q3 + 1.5 IQR respectively.
+Write a function that takes a 1D numeric NumPy array and returns a 1D array consistting of the outliers that are greater than upper bound or less than lower bound calculated.
+
+
+```
+import numpy as np
+def outliers_with_IQR(data):
+    
+    # calculating the first and third quaritle values
+    q1,q3 = np.percentile(data,[25,75])
+    
+    # calculating the interquartile range
+    iqr = q3 - q1
+    
+    # calculating the upper and lower limits
+    lower_limit = q1 - 1.5*iqr
+    upper_limit = q3 + 1.5*iqr
+    
+    res = []
+    # searching the outliers
+    for val in data:
+      if lower_limit > val:
+        res.append(val)
+      elif val > upper_limit:
+          res.append(val)
+    
+    res = np.array(res)
+    return res
+
+```
