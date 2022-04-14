@@ -3,6 +3,7 @@
 This page contains solutions to some problems presented in [mlpro](https://mlpro.io/problems/) platform
 
 
+
 ### NLP -  Jaccard Similarity Index
 #### Difficulty: 2
 The Jaccard similarity index measures the similarity between two sets of data. It can range from 0 to 1. The higher the number, the more similar the two sets of data.   
@@ -33,9 +34,18 @@ def blur_PIL(img_array: np.ndarray):
     im = np.asarray(img_array).reshape(-1,1)
     out = np.concatenate([im, np.ones(np.prod(shape)).reshape(-1,1) * 255], axis=1).reshape(shape+(2,))
     return out.astype(np.uint8)   
-
-
 ```
+### Computer Vision - Alpha Blending
+#### Difficulty: 3
+
+Alpha blending is the process of overlaying a foreground image with transparency over a background image. The transparency is often the fourth channel of an image ( e.g. in a transparent PNG), but it can also be a separate image. This transparency mask is often called the alpha mask or the alpha matte.
+```
+import numpy as np
+def alpha_blend(mat1, mat2):
+    m1 = np.asarray(mat1)
+    m2 = np.asarray(mat2)
+    return np.floor(m1 + 0.2*(m2 - m1))
+ ```
 ### Fundamentals : Outlier Detection with IQR
 #### Difficulty: 2
 IQR, or Inter-Quartile Range, is the difference between third quartile and first quartile of your data (75th percentile and 25th percentile respectively).
