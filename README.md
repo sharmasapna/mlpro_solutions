@@ -77,5 +77,33 @@ def outliers_with_IQR(data):
     
     res = np.array(res)
     return res
-
+```
+## Feature Engineering
+### Difficulty -7
+Apply the following feature engineering to both X_train and X_test:
+Add two columns of squares of the two features
+Add two columns of log of the two features
+Add two columns of exp of the two features
+The final feature vector should consist of the concatenation of the original X_train with the squares, log, and exp features, in that order.
+```
+import numpy as np
+from sklearn.linear_model import LogisticRegression
+def Predict(X_train, Y_train, X_test):
+    # Feature engineering
+    def get_transformed_data(df):
+      x = pd.DataFrame(df,columns=('a','b'))
+      x['a_sqr'] = x.a*x.a
+      x['b_sqr'] = x.b*x.b
+      x['a_log'] = np.log(x.a)
+      x['b_log'] = np.log(x.b)
+      x['a_exp'] = np.exp(x.a)
+      x['b_exp'] = np.exp(x.b)
+      x = np.array(x)
+      return x.tolist()
+      
+    X_train = get_transformed_data(X_train)
+    X_test = get_transformed_data(X_test)
+    # creating the model
+    model = LogisticRegression(solver='liblinear').fit(X_train,Y_train)
+    return model.predict(X_test)
 ```
