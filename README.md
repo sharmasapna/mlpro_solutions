@@ -107,3 +107,26 @@ def Predict(X_train, Y_train, X_test):
     model = LogisticRegression(solver='liblinear').fit(X_train,Y_train)
     return model.predict(X_test)
 ```
+
+## Prob. and Stat
+### Difficulty -2
+
+A bunch of students take an exam with mean score mu and standard deviation of stdev.   
+What is the probability that a random student scored above a 95 on the exam?
+```
+import math
+def normal_cdf(mu, stdev):
+    # calculating the z_score
+    z_score = (95-mu)/stdev
+    
+    # The math.erf() method returns the error function 
+    # of a number.
+    # This method accepts a value between - inf and + inf, 
+    # and returns a value between - 1 to + 1.
+    p = .5 * (math.erf(z_score / 2 ** .5) + 1)
+    
+    # since the value is the probability of a number
+    # being in between 0 to 95, we need to subtract
+    # it from 1 to get the value between 95 to 100
+    return 1-p
+```
