@@ -169,3 +169,44 @@ def normal_cdf(mu, stdev):
     # it from 1 to get the value between 95 to 100
     return 1-p
 ```
+
+### Prob. and Stat - Absolute Error
+#### Difficulty: 2
+```
+import numpy as np
+def abs_error(arr1,arr2):
+    ae = 0
+    for a,b in zip(arr1,arr2):
+      ae += np.abs(a-b)
+    return ae/len(arr1)
+```
+
+
+### Prob. and Stat - Cumulative Sum
+#### Difficulty: 2
+
+```
+def csum(n):
+    res = [n[0]]
+    for i in range(1,len(n)):
+        cs = res[i-1] + n[i]
+        print(cs)
+        res.append(cs)
+    return res
+```
+
+### Prob. and Stat - Bayes Theorem
+#### Difficulty: 1
+
+```
+import numpy as np
+
+def bayes(h_prior, e_given_h,  e_not_given_h):
+    
+    # here we have to return p(H|E) while we are given 
+    # p(H),P(E|H) and p(E|notH)(assuming it is e_not_given_h))
+    # Applying Bayes theorm
+    # (p(H|E)) = p(H)*p(E|H)/(p(H)*p(E|H)  + p(notH)*p(E|notH))
+    return h_prior*e_given_h/(h_prior*e_given_h + (1-h_prior)*e_not_given_h)
+
+```
