@@ -1,6 +1,26 @@
 ## mlpro solutions
 
 This page contains solutions to some problems presented in [mlpro](https://mlpro.io/problems/) platform
+
+
+
+### Data Wrangling - 1D Histogram
+#### Difficulty: 2
+
+A histogram represents the frequency distribution of data. The idea is to take a list of values and make a tally of how many times each value occurs.
+Given a 1D NumPy array, create a histogram of the data represented as a NumPy array where the index represents the number and the value represents the count. Note that the first index (position 0) represents how many times number 1 occurs.
+
+There are 2 things to note:
+
+The parameter range default from min to max, however the task requires histogram starting from 1.
+bins default to only 10 values, therefore we must set it to max cover all the numbers in the np.array
+```
+import numpy as np
+
+def get_histogram(arr):
+    h,b = np.histogram(arr,bins=np.amax(arr),range = (1,np.amax(arr)))
+    return h
+```
 ### Data Wrangling - Normalization of Data between 0 and 1
 #### Difficulty: 2
 When performing statistical analyses, data should be in a normalized form.   
@@ -97,8 +117,8 @@ def outliers_with_IQR(data):
     res = np.array(res)
     return res
 ```
-## Feature Engineering
-### Difficulty -7
+### Feature Engineering
+#### Difficulty: 7
 Apply the following feature engineering to both X_train and X_test:
 Add two columns of squares of the two features
 Add two columns of log of the two features
@@ -127,8 +147,8 @@ def Predict(X_train, Y_train, X_test):
     return model.predict(X_test)
 ```
 
-## Prob. and Stat
-### Difficulty -2
+### Prob. and Stat
+#### Difficulty: 2
 
 A bunch of students take an exam with mean score mu and standard deviation of stdev.   
 What is the probability that a random student scored above a 95 on the exam?
