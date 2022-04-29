@@ -1,8 +1,27 @@
 ## mlpro solutions
 
 This page contains solutions to some problems presented in [mlpro](https://mlpro.io/problems/) platform
-
-
+### Data Wrangling - Normalization of Data between 0 and 1
+#### Difficulty: 2
+When performing statistical analyses, data should be in a normalized form.   
+Normalization is used to fit the data within unity so that all values must    
+fall in range between 0 and 1.     
+There are different kinds of normalization but here we will use Min-Max Normalization, which is:
+x = (x-x_min)/(x_max-x_min)
+Input Details: NumPy array of random floating point values.
+Output Details: A NumPy array with data in normalized form ranging from 0 to 1.
+```
+def minMaxNormalization(inputArray):
+    # calculate the minimum and the maximum value
+    min_val = min(inputArray)
+    max_val = max(inputArray)
+    
+    res = []
+    for i in range(len(inputArray)):
+        new_val = (inputArray[i] - min_val)/(max_val-min_val)
+        res.append(new_val)
+    return np.array(res)
+ ```
 
 ### NLP -  Jaccard Similarity Index
 #### Difficulty: 2
