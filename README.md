@@ -55,6 +55,21 @@ def jaccard_similarity(list1,list2):
     js = number_of_elements_in_either_sets / number_of_elements_in_both_sets 
     return js
 ```
+### Computer Vision : Image Mirror
+#### Difficulty: 5
+
+
+Image mirroring or flipping is a data augmentation preprocessing technique used in computer vision to add some variance to the dataset and increase the number of training examples, helping to reduce overfitting.
+In this problem, you are given an image in the form of 2-D matrix. Write a function that returns that image flipped or mirrored.
+```
+import numpy as np
+def flip_img(image):
+    res = []
+    for val in image:
+      res.append(val[::-1])
+    return np.array(res)
+
+```
 
 ### Computer Vision : Simple Blur
 #### Difficulty: 1
